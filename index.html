@@ -2,34 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Jiffy">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/assets/icon.jpg?v=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon.jpg?v=1">
-  <link rel="apple-touch-icon" sizes="512x512" href="/assets/icon-512x512.png?v=1">
-  <link rel="icon" type="image/jpeg" sizes="180x180" href="/assets/icon.jpg?v=1">
-  <title>Jiffy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiffy00.001</title>
+  <style>
+    body {
+      background-color: #fffde7; /* Light yellow for this update */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas {
+      border: 1px solid #000;
+      margin-top: 10px;
+    }
+    .error-message {
+      color: red;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <canvas id="homepageCanvas"></canvas>
-  <script src="/js/canvas.js"></script>
-  <script src="/js/data.js"></script>
+  <h1>Jiffy00.001</h1>
+  <p>Canvas test for rendering. Background color changed to indicate update.</p>
+  <canvas id="jiffyCanvas" width="400" height="300"></canvas>
+  <p id="errorMessage" class="error-message">Canvas failed to render. Check console for details.</p>
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      console.log('DOM content loaded');
-      setTimeout(() => {
-        if (typeof window.initializeCanvas === 'function' && typeof window.attemptInitialRender === 'function') {
-          window.initializeCanvas();
-          window.attemptInitialRender();
-        } else {
-          console.error('Initialization functions not available');
-          document.body.innerHTML += '<p>Error: Canvas rendering failed. Check console.</p>';
-        }
-      }, 100);
-    });
+    try {
+      console.log("Jiffy00.001 page loaded");
+      const canvas = document.getElementById("jiffyCanvas");
+      if (!canvas) {
+        throw new Error("Canvas element not found");
+      }
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        throw new Error("Failed to get 2D canvas context");
+      }
+      // Test rendering
+      ctx.fillStyle = "blue";
+      ctx.fillRect(50, 50, 100, 100); // Draw a blue square
+      console.log("Canvas rendered successfully");
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM fully loaded and parsed");
+      });
+    } catch (error) {
+      console.error("Canvas rendering error:", error);
+      document.getElementById("errorMessage").style.display = "block";
+    }
   </script>
 </body>
 </html>
