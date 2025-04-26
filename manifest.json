@@ -4,15 +4,15 @@
   "description": "A productivity app for managing tasks and timers",
   "icons": [
     {
-      "src": "/assets/icon.png",
+      "src": "/assets/icon.jpg",
       "sizes": "180x180",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/assets/icon.png",
+      "src": "/assets/icon.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
