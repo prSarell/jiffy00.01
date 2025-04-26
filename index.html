@@ -6,7 +6,7 @@
   <title>Jiffy00.001</title>
   <style>
     body {
-      background-color: #fffde7; /* Light yellow for this update */
+      background-color: #ffe6e6; /* Light pink for this update */
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
@@ -39,7 +39,7 @@
       }
       const ctx = canvas.getContext("2d");
       if (!ctx) {
-        throw new Error("Failed to get 2D canvas context");
+        throw new Error("Failed to get 2D canvas context. Browser may not support canvas.");
       }
       // Test rendering
       ctx.fillStyle = "blue";
@@ -49,7 +49,7 @@
         console.log("DOM fully loaded and parsed");
       });
     } catch (error) {
-      console.error("Canvas rendering error:", error);
+      console.error("Canvas rendering error:", error.message, error.stack);
       document.getElementById("errorMessage").style.display = "block";
     }
   </script>
